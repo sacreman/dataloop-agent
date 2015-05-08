@@ -16,6 +16,7 @@ sudo docker run \
 
 Where {API_KEY} should match the key in the Dataloop UI and signup email.
 
+You should put a single dataloop/dataloop-docker container on each physical docker host.
 
 ### To build the Docker locally
 
