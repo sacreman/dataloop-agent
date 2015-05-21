@@ -9,7 +9,7 @@ else
 fi
 
 if [[ $SERVER ]]; then
-        sed -i "s/server:.*/server: $SERVER/" /etc/dataloop/agent.yaml
+        sed -i "s|server:.*|server: $SERVER|" /etc/dataloop/agent.yaml
 fi
 
 exec "$@"
