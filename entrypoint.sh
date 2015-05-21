@@ -7,5 +7,9 @@ else
 	echo "You must set API_KEY environment variable to run the Dataloop Agent container"
 	exit 1
 fi
-nohup /usr/bin/cadvisor &
+
+if [[ $SERVER ]]; then
+        sed -i "s/server:.*/server: $SERVER/" /etc/dataloop/agent.yaml
+fi
+
 exec "$@"
