@@ -13,4 +13,19 @@ sudo docker run \
   dataloop/dataloop-docker
 ```
 
-You should put a single dataloop/dataloop-docker container on each physical docker host along with a CAdvisor container.
+### Use with cAdvisor
+
+Link cAdvisor to the dataloop-docker container:
+
+```
+sudo docker run\
+  --volume=/:/rootfs:ro \
+  --volume=/var/run:/var/run:rw \
+  --volume=/sys:/sys:ro \
+  --volume=/var/lib/docker/:/var/lib/docker:ro \
+  --publish=8080:8080 \
+  --detach=true \
+  --link dataloop-docker:latest \
+  --name=cadvisor \
+  google/cadvisor:latest
+```
