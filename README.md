@@ -7,10 +7,8 @@ API_KEY=<insert your key>
 sudo docker run \
   --volume=/var/run/docker.sock:/var/run/docker.sock \
   --detach=true \
-  --name=dataloop-docker \
+  --name=dataloop-agent \
   --hostname=$(hostname) \
   -e API_KEY=$API_KEY \
-  dataloop/dataloop-docker
+  dataloop/dataloop-agent
 ```
-
-You should put a single dataloop/dataloop-docker container on each physical docker host along with a CAdvisor container.
